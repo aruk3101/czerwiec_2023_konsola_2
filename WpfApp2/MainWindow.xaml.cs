@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -37,6 +38,27 @@ namespace WpfApp2
             {
                 imgPrzesylka.Source = new BitmapImage(new Uri("/paczka.png", UriKind.Relative));
                 lblCena.Content = "Cena: 10 zł";
+            }
+        }
+
+        private void OnZatwierdzClick(object sender, RoutedEventArgs e)
+        {
+            string kodPocztowy = txtKodPocztowy.Text;
+
+            if (!Regex.IsMatch(kodPocztowy, @"^\d{5}$"))
+            {
+                if (kodPocztowy.Length != 5)
+                {
+                    MessageBox.Show("Nieprawidłowa liczba cyfr w kodzie pocztowym");
+                }
+                else
+                {
+                    MessageBox.Show("Kod pocztowy powinien się składać z samych cyfr");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Dane przesyłki zostały wprowadzone");
             }
         }
     }
