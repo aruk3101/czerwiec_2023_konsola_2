@@ -6,7 +6,48 @@
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <StackPanel>
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-    </Grid>
+            <StackPanel Margin="30,0">
+                <GroupBox Header="Rodzaj Przesyłki" Width="200" HorizontalAlignment="Left">
+                    <StackPanel>
+                        <RadioButton x:Name="radioPocztowka" Content="Pocztówka" IsChecked="True" Margin="10"/>
+                        <RadioButton x:Name="radioList" Content="List" Margin="10"/>
+                        <RadioButton x:Name="radioPaczka" Content="Paczka" Margin="10"/>
+                    </StackPanel>
+                </GroupBox>
+                <Button Content="Sprawdź Cenę" Click="OnSprawdzCeneClick" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="200"/>
+                <Grid HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" x:Name="imgPrzesylka" Source="/pocztowka.png" Width="100" Height="100"/>
+                    <Label Grid.Column="1" x:Name="lblCena" Content="Cena: " FontWeight="Bold" FontSize="20" Margin="20,0,0,0" VerticalAlignment="Top"/>
+                </Grid>
+
+            </StackPanel>
+
+
+            <GroupBox Grid.Column="1"  Header="Dane adresowe" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="30,0" Width="270">
+                <StackPanel>
+                    <Label Content="Ulica z numerem:" Width="100" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtUlica" Margin="0,0,0,10"/>
+                    <Label Content="Kod pocztowy:" Width="100" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtKodPocztowy" Margin="0,0,0,10"/>
+                    <Label Content="Miasto:" Width="100" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtMiasto" Margin="0,0,0,10"/>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+        <Button Content="Zatwierdź" Click="OnZatwierdzClick" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" Width="600"/>
+    </StackPanel>
 </Window>
