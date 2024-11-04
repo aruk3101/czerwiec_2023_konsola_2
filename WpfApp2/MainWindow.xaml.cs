@@ -20,5 +20,24 @@ namespace WpfApp2
         {
             InitializeComponent();
         }
+
+        private void OnSprawdzCeneClick(object sender, RoutedEventArgs e)
+        {
+            if (radioPocztowka.IsChecked == true)
+            {
+                imgPrzesylka.Source = new BitmapImage(new Uri("/pocztowka.png", UriKind.Relative));
+                lblCena.Content = "Cena: 1 zł";
+            }
+            else if (radioList.IsChecked == true)
+            {
+                imgPrzesylka.Source = new BitmapImage(new Uri("/list.png", UriKind.Relative));
+                lblCena.Content = "Cena: 1,5 zł";
+            }
+            else if (radioPaczka.IsChecked == true)
+            {
+                imgPrzesylka.Source = new BitmapImage(new Uri("/paczka.png", UriKind.Relative));
+                lblCena.Content = "Cena: 10 zł";
+            }
+        }
     }
 }
